@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
@@ -46,6 +47,7 @@ public class MapGenerator : MonoBehaviour
         stack.Push(startCell);
 
         int numRooms = 0;
+
         // while there are unexplored rooms
         while (stack.Count > 0)
         {
@@ -53,6 +55,34 @@ public class MapGenerator : MonoBehaviour
             Vector2Int current = stack.Pop();
 
             // code here
+
+            if (current==discovered)
+            {
+                return map;
+            }
+
+            if (current == hastoomanyneighbors)
+            {
+                return map;
+            }
+
+            if (stack.Count > minRooms && bosschance)
+            {
+
+            }
+
+            if (lastroom)
+            {
+                make boss room
+            }
+
+            if (hasBoss)
+            {
+                return map;
+            }
+
+            (random chance choose neighbors)
+            
         }
         return map;
     }
